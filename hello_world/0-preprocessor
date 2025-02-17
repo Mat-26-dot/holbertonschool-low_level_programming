@@ -1,2 +1,2 @@
 #!/bin/bash
-Source code (.c file)
+gcc -E "$CFILE" -o c
