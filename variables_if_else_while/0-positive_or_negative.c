@@ -22,23 +22,33 @@ int main(void)
 	 * if (n > 0) {
 	 *
 	 * 
-	 *
 	 * printf("is positive");
 	 *
 	 * }
 	 * 
 	 *
-	 *
-	 *else (n == 0){
+	 else { 
+	 printf("is negative");
 
-	  printf ("is zero");
+	 }
 
+	 *if (n == 0){
+	 printf ("is zero");
+
+	 } 
+
+	else {
+	printf("is positive")
+	  
 	}
-
 	
-	  if (n < 0) {
+	if (n < 0) {
 
 	  printf ("is negative");
+
+	  else {
+
+	  printf("positive")
 
 	  }
 	 * */
