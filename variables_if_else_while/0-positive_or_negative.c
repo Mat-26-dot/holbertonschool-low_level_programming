@@ -17,29 +17,34 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/*
-	 * if (n > 0) }
 	 *
-	 * {
 	 *
-	 * printf("%d > 0", n);
+	 * if (n > 0) {
+	 *
+	 * 
+	 *
+	 * printf("is positive");
 	 *
 	 * }
 	 * 
-	 *{
 	 *
-	 *if (0==0)
+	 *
+	 *else (n == 0){
 
-	  printf ("%d == 0", n);
+	  printf ("is zero");
 
 	}
 
-	{
+	
+	  if (n < 0) {
 
-	 if (n < 0) }
-
-	  printf ("%d < 0", n);
+	  printf ("is negative");
 
 	  }
 	 * */
 	
-	return (0);}
+	return (0);
+
+}	
+
+
