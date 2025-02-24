@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * mul(int a, int b) - Entry point
+ * mul - Entry point
  *
  *Return: Always 0
  *
- * @mul(int a, int b) to be checked
+ * @a: to be checked
+ * @b: to be checked
  */
 
 
