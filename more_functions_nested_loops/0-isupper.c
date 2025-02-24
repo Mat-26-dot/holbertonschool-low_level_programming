@@ -4,7 +4,7 @@
  *
  * Return: Always 0
  *
- * @c; c character to be checked
+ * @c: c character to be checked
  */
 
 
