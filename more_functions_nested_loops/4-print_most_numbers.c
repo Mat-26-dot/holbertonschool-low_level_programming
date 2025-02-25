@@ -1,27 +1,22 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * print- check the code
+ * print_most numbers - 0 to 9 excluding 2 and 4
  *
- * @: 0 to be checked
- *
- * @: 9 to be checked 
- *
- * Return: Always 0
+ * Return: void
  */
 void print_most_numbers(void)
 {
 
-	int num = 0;
+	char c;
 
-	while (num < 10)
+
+
+	for (c = '0'; c <= '9'; c++)
 	{
-	
-		if (num != 2 && num != 4)
-		{
-			_putchar (num + 48);
-			num++;
-		}
+
+		if (c != '2' && c != '4')
+		putchar(c);
 	}
-		_putchar('\n');
+	putchar('\n');
 }
