@@ -1,12 +1,14 @@
 #include "main.h"
 
 /**
- *_ strlen - Returns the lenghth of a string
+ * _strlen - Returns the length of a string.
+ * @s: The string whose length is to be measured.
  *
- * @s: Pointer to the string whose length is to be determined
- *
- * Return: The length of the string (number of characters before '\0')
- */
+ * Description: This function iterates through the string 
+ *              until the null terminator is found.
+ * 
+ * Return: The length of the string (excluding the null character).
+ **/
 int _strlen(char *s)
 {
 	int length = 0;
