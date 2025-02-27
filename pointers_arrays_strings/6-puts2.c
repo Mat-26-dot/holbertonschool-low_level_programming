@@ -1,11 +1,10 @@
-#include "main.h"
 #include <stdio.h>
+
 /**
- * puts2 - prints out every character of the string until it reaches '\0'
- *
+ * puts2 - Prints every other character of a string
  * @str: The input string
  *
- * Return: Always 0.
+ * Return: void
  */
 void puts2(char *str)
 {
@@ -13,10 +12,9 @@ void puts2(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (i % 2 == 0)
-
-			printf("%c", str[i]);
+	if (i % 2 == 0)
+		fwrite(&str[i], sizeof(char), 1, stdout);
 	}
+	fwrite("\n", sizeof(char), 1, stdout);
 
-	printf("\n");
 }
