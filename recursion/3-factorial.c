@@ -2,9 +2,12 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * factorial - Computes the factorial of a given number.
  *
- * Return: Always 0.
+ * @n: The number for which the factorial is computed.
+ *
+ * Return: The factorial of n if n is greater than or equal to 0,
+ * or -1 if n is less than 0 to indicate an error.
  */
 int factorial(int n)
 {
