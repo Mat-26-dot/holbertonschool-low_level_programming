@@ -14,16 +14,18 @@
 char *_strchr(char *s, char c)
 {
 	int i;
-	char *first_occurence;
 
 	for (i = 0; s[i] != '\0'; i++)
 
 		if (s[i] == c)
 		{
-			first_occurence = &s[i];
+			return (&s[i]);
 
-			return (first_occurence);
 		}
-		
-	return (NULL);
+
+			if (c == '\0')
+		{
+				return (&s[i]);
+		}
+		return (NULL);
 }
