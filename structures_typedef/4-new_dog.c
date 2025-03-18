@@ -12,8 +12,8 @@ int _strlen(char *s)
 {
 	int len = 0;
 
-	while (s[len])
-	len++;
+	while (s[len]) /*keep going until you hit the end*/
+	len++;	      /*count each character*/
 	return (len);
 }
 
@@ -30,10 +30,10 @@ char *_strcpy(char *dest, char *src)
 
 	while (src[i])
 	{
-	dest[i] = src[i];
+	dest[i] = src[i]; /*copy each character*/
 	i++;
 	}
-	dest[i] = '\0';
+	dest[i] = '\0'; /*add the full stop at the end*/
 	return (dest);
 }
 
@@ -48,21 +48,21 @@ char *_strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *my_dog;
-
+	/*check if we have all the information*/
 	if (name == NULL || owner == NULL)
 	return (NULL);
-
+	/*create the passport (dog structure*/
 	my_dog = malloc(sizeof(dog_t));
 	if (my_dog == NULL)
 	return (NULL);
-
+	/*allocate space for the name in the passport*/
 	my_dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
 	if (my_dog->name == NULL)
 	{
 	free(my_dog);
 	return (NULL);
 	}
-
+	/*allocate space for the owner's name in the passport*/
 	my_dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 	if (my_dog->owner == NULL)
 	{
@@ -70,7 +70,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	free(my_dog);
 	return (NULL);
 	}
-
+	/*fill in the passport details*/
 	_strcpy(my_dog->name, name);
 	_strcpy(my_dog->owner, owner);
 	my_dog->age = age;
