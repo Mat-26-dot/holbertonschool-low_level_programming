@@ -1,16 +1,13 @@
 #include "main.h"
 #include <stdio.h>
 
- /**
- * _strspn - Calculates the length of a prefix substring.
+/**
+ * _strspn - Calculates the length of a substring
  * @s: The main string to check, expected to be null-terminated.
  * @accept: The string containing the characters to match,
  * also null-terminated.
  *
- * Return: The number of bytes in the initial segment of `s` that
- *         consists entirely of characters from `accept`.
- *         The function stops counting when it encounters a character
- *         in `s` that is not in `accept`.
+ * Return: The number of bytes in the initial segment of s
  */
 unsigned int _strspn(char *s, char *accept)
 {
