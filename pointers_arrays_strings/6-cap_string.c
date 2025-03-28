@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
  * is_separator - Checks if a character is a word separator
