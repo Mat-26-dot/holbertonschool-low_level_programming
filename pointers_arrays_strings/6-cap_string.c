@@ -1,53 +1,43 @@
 #include "main.h"
-#include <ctype.h>
-
 /**
- * is_separator - Checks if a character is a word separator
- * @c: The character to check
- * Return: 1 if the character is a separator, 0 otherwise
+ * cap_string - A function that capitalises the first letter
+ * of each word in a string.
+ * @s: The input string.
+ * Return: The modified string.
  */
-int is_separator(char c)
+char *cap_string(char *s)
 {
-	char separators[] = " \t\n,;.!?\"(){}";
-
-	int i;
-
-	for (i = 0; separators[i] != '\0'; i++)
+	int i = 0; /* Start at the first character of the string */
+	char separators[] = " \t\n,.!?\"(){}"; /* List of separators */
+	int sep_count; /* Used to check each separator */
+	/* Loop through each character in the string until we reach null */
+	while (s[i] != '\0')
 	{
-
-		if (c == separators[i])
-			return (1);
+		/* Reset to check from first separator */
+		sep_count = 0;
+		/* If at the start of string, and letter is lowercase, */
+		/* convert to uppercase */
+		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
+		{
+		/* Convert char to uppercase by minus 32 from ASCII value */
+			s[i] = s[i] - 32;
+		}
+		/* Loop through each separator in the list */
+		while (separators[sep_count] != '\0')
+		{
+		/* If previous char is separator and current char is lowercase */
+			if (i > 0 && s[i - 1] == separators[sep_count])
+			{
+				/* Capitalise the current letter */
+				if (s[i] >= 'a' && s[i] <= 'z')
+				{
+					/* Convert to uppercase */
+					s[i] = s[i] - 32;
+				}
+			}
+		sep_count++; /* Move to next separator */
+		}
+	i++; /* Move to the net character in the string */
 	}
-	return (0);
-}
-
-/**
- * cap_string - Capitalizes all words of a string
- * @str: The string to be capitalized
- * Return: Pointer to the changed string
- */
-char *cap_string(char *str)
-{
-	int i, capitalize_next = 1;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-
-	if (is_separator(str[i]))
-	{
-		capitalize_next = 1;
-	}
-
-		else if (capitalize_next && islower(str[i]))
-	{
-		str[i] = toupper(str[i]);
-		capitalize_next = 0;
-	}
-	else
-	{
-		capitalize_next = 0;
-	}
-}
-
-		return (str);
+	return (s);
 }
