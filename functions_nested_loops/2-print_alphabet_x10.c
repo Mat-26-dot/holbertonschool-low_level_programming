@@ -13,7 +13,7 @@ void print_alphabet_x10(void)
 	for (i = 0; i < 10; i++)/* outter loop prints alph x10*/
 	{
 		for (c = 'a'; c <= 'z'; c++)/* inner loop iterates a to z*/
-		_putchar('c');
+		_putchar(c);
 	}
 	_putchar('\n');
 }
