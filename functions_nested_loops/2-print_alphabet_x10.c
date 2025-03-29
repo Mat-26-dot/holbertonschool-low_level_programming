@@ -15,5 +15,5 @@ void print_alphabet_x10(void)
 		for (c = 'a'; c <= 'z'; c++)/* inner loop iterates a to z*/
 		_putchar(c);
 	}
-	_putchar('\n');
+		_putchar('\n');
 }
