@@ -1,8 +1,9 @@
+#include "main.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include "lists.h"
-#include "main.h"
+
 /**
  * main - check the code
  *
