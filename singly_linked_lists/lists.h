@@ -14,5 +14,6 @@ typedef struct list_s
 	struct list_s *next; /* Correct reference using struct tag */
 	}list_t;
 
+size_t print_list(const list_t *h);
 
 #endif
