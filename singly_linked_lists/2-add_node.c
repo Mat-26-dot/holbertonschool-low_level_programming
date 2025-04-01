@@ -13,6 +13,8 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node; /*Declare *new_node at the top*/
 
+	unsigned int length = 0; /* Variable to store string length */
+
 	if (str == NULL) /* Step 1 - Parameter validation */
 		return (NULL);
 
@@ -26,7 +28,10 @@ list_t *add_node(list_t **head, const char *str)
 		free(new_node); /* Free allocated memory for the node */
 			return (NULL);
 	}
-		new_node->len = strlen(new_node->str); /* Step 4. Store string length */
+		while (str[length] != '\0') /* Step 4. Calc string length manually*/
+			length++;
+
+		new_node->len = length;
 		new_node->next = *head;  /* Point new node's next to current head */
 
 		*head = new_node; /* Step 5. Update the head pointer to point to new node */
