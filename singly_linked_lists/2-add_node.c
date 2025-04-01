@@ -25,12 +25,12 @@ list_t *add_node(list_t **head, const char *str)
 	{
 		free(new_node); /* Free allocated memory for the node */
 			return (NULL);
-
+	}
 		new_node->len = strlen(new_node->str); /* Step 4. Store string length */
 		new_node->next = *head;  /* Point new node's next to current head */
 
 		*head = new_node; /* Step 5. Update the head pointer to point to new node */
-		}
+
 			return (new_node); /* Return new node as confirmation of success */
 
 
