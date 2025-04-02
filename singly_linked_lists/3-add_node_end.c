@@ -12,6 +12,7 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new_node, *current;
+	
 	unsigned int length = 0;
 
 	/* Allocate memory for new node */
@@ -21,30 +22,30 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	/* Duplicate string and check for failure */
 	new_node->str = strdup(str);
-	if (new_node->str == NULL)
-	{
-		free(new_node);
-		return (NULL);
-	}
-	while (str[length] != '\0')
-		length++;
-	new_node->len = length;
-	/* Initialize next pointer */
-	new_node->next = NULL;
+		if (new_node->str == NULL)
+		{
+			free(new_node);
+				return (NULL);
+		}
+		while (str[length] != '\0')
+		{	length++;
+				new_node->len = length;
+				/* Initialize next pointer */
+				new_node->next = NULL;
+		}
+			/* Handle empty list case */
+		if (*head == NULL)
+		{
+			*head = new_node;
+				return (new_node);
+		}
+			/* Traverse to the last node */
+				current = *head;
+		while (current->next != NULL)
+				current = current->next;
 
-	/* Handle empty list case */
-	if (*head == NULL)
-	{
-	*head = new_node;
-		return (new_node);
-	}
-	/* Traverse to the last node */
-	current = *head;
-	while (current->next != NULL)
-	current = current->next;
-
-	/* Link new node at the end */
-	current->next = new_node;
+		/* Link new node at the end */
+		current->next = new_node;
 
 	return (new_node);
 }
