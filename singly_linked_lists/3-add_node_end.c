@@ -16,7 +16,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	unsigned int length = 0;
 	
 	/* Validate inputs */
-	if (head is NULL || str == NULL)
+	if (head == NULL || str == NULL)
 	
 	/* Allocate and validate new node */
 	new_node = malloc(sizeof(list_t));
