@@ -28,7 +28,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 	while (str[length] != '\0')
 		length++;
-	new_node-> len = length;
+	new_node->len = length;
 	/* Initialize next pointer */
 	new_node->next = NULL;
 
