@@ -15,9 +15,10 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *new_node; /* pointer for the new_node */
 	list_t *current; /* Pointer for traversing list */
 
-	list_t *new_node = malloc(sizeof(list_t)); /*Step 1.Allocate mem to new node*/
+	new_node = malloc(sizeof(list_t)); /*Step 1.Allocate mem to new node*/
 
 	if (new_node == NULL)
+	{
 		return (NULL); /* Return NULL if mem fails */
 	}
 	new_node->str = strdup(str); /* Step 2. Duplicate string using strdup */
