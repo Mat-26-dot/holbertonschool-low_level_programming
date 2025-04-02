@@ -18,9 +18,9 @@ list_t *add_node_end(list_t **head, const char *str)
 	new_node = malloc(sizeof(list_t)); /*Step 1.Allocate mem to new node*/
 
 	if (new_node == NULL)
-	{
+
 		return (NULL); /* Return NULL if mem fails */
-	}
+
 	new_node->str = strdup(str); /* Step 2. Duplicate string using strdup */
 
 	if (new_node->str == NULL)
@@ -39,8 +39,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	while (current->next != NULL)
 	{	/*If not empty, taverse till reach las node - next == NULL*/
 		current = current->next; /* Move to the next node */
-	}
-		current->next = new_node; /* Current stops traversing when reaches NULL */
 
+		current->next = new_node; /* Current stops traversing when reaches NULL */
+	}
 		return (new_node); /* Return pointer to newly created node*/
 }
