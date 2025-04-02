@@ -13,9 +13,9 @@ void free_list(list_t *head)
 
 	while (head != NULL)
 	{
-		temp = head;
-		head = head->next;
-		free(temp->str);
-		free(temp);
+		temp = head;        // Store the current node
+		head = head->next; // Move to the next node
+		free(temp->str);  // Free the string if dynamically allocated
+		free(temp);	 // Free the node itself
 	}
 }
