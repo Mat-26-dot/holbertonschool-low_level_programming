@@ -1,46 +1,48 @@
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * add_node_end - Adds a new node at the end of list_t list
- * @str: needs to be duplicated
- * @head: header for list_t
+ * add_node_end - Adds a new node at the end of a list_t list
+ * @head: Double pointer to the head of the list
+ * @str: String to be duplicated and stored in the new node
  *
- * Return: Return the address of the new element
+ * Return: Address of the new element, or NULL if it failed
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node; /* pointer for the new_node */
-	list_t *current; /* Pointer for traversing list */
+	list_t *new_node, *current;
 
-	new_node = malloc(sizeof(list_t)); /*Step 1.Allocate mem to new node*/
-
+	/* Allocate memory for new node */
+	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
+		return (NULL);
 
-		return (NULL); /* Return NULL if mem fails */
-
-	new_node->str = strdup(str); /* Step 2. Duplicate string using strdup */
-
+	/* Duplicate string and check for failure */
+	new_node->str = strdup(str);
 	if (new_node->str == NULL)
 	{
-		free(new_node); /* Free allocated mem for new mode */
-			return (NULL);
+		free(new_node);
+		return (NULL);
 	}
-		new_node->next =  NULL;
-	/* Step 3.Initialize pointer of new node to NULL, added at end of list */
-		if (*head == NULL)
-		{
-			*head = new_node; /* Make new node at the head of the list */
-				return (new_node);
-		}
-		current = *head; /* Make new node head of the list */
-	while (current->next != NULL)
-	{	/*If not empty, taverse till reach las node - next == NULL*/
-		current = current->next; /* Move to the next node */
 
-		current->next = new_node; /* Current stops traversing when reaches NULL */
+	/* Initialize next pointer */
+	new_node->next = NULL;
+
+	/* Handle empty list case */
+	if (*head == NULL)
+	{
+	*head = new_node;
+		return (new_node);
 	}
-		return (new_node); /* Return pointer to newly created node*/
+
+	/* Traverse to the last node */
+	current = *head;
+	while (current->next != NULL)
+	current = current->next;
+
+	/* Link new node at the end */
+	current->next = new_node;
+
+	return (new_node);
 }
