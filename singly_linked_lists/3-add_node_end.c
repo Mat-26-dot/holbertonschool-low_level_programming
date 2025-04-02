@@ -14,8 +14,11 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *new_node, *current;
 	
 	unsigned int length = 0;
-
-	/* Allocate memory for new node */
+	
+	/* Validate inputs */
+	if (head is NULL || str == NULL)
+	
+	/* Allocate and validate new node */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
 		return (NULL);
@@ -27,20 +30,22 @@ list_t *add_node_end(list_t **head, const char *str)
 			free(new_node);
 				return (NULL);
 		}
-		while (str[length] != '\0')
-		{	length++;
+		/* Calculate string length manually without using (strlen) */
+		while (str[length] != '\0') 
+		{		length++;
 				new_node->len = length;
+				
 				/* Initialize next pointer */
 				new_node->next = NULL;
 		}
-			/* Handle empty list case */
+		/* Handle empty list case */
 		if (*head == NULL)
 		{
 			*head = new_node;
 				return (new_node);
 		}
-			/* Traverse to the last node */
-				current = *head;
+		/* Traverse to the last node */
+		current = *head;
 		while (current->next != NULL)
 				current = current->next;
 
