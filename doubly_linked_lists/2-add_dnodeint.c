@@ -13,19 +13,23 @@
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new_node; /* Declare *new_node pointer */
-
-	new_node = malloc(sizeof(dlistint_t)); /* Step 2. Malloc mem for new node */
-
-		if (new_node == NULL) /* If malloc fails, return NULL */
+	
+	/* Step 1. Allocate memory for the new_node */
+	new_node = malloc(sizeof(dlistint_t));
+	
+	if (new_node == NULL) /* If malloc fails, return NULL */
 			return (NULL);
-
-	new_node->n = n; /* Pointing n to the head node */
-	new_node->prev = NULL;
-	new_node->next = *head;
-
+	
+	/* Step 2. Assign values to the new node */
+	new_node->n = n;         /* Set the integar value */
+	new_node->prev = NULL;   /* Set prev pointer to NULL (first node) */ 
+	new_node->next = *head;  /* Point next to the current head */
+	
+	/* Step 3. Update the current head's prev pointer if list is not empty */
 	if (*head != NULL)
 		(*head)->prev = new_node;
-
+	
+	/* Step 4. Update head to point to the new node */
 	*head = new_node;
 
 	return (new_node);
