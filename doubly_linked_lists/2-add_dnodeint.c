@@ -6,35 +6,36 @@
 /**
  * add_dnodeint - add node to traverse through list
  * @head: The header node
- * @str: Length of the string
+ * @n: The integer value to be stored in the new node.
  *
  * Return: Return: address of new element, or NULL if failed
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new_node; /* Declare *new_node pointer */
-
-	unsigned int length = 0; /* Declare a variable to store string length */
 	
-	char *str;
+	dlistint_t *current_head;
 	
-	if (str == NULL)	/* Step 1. Parameter validation */
+	if (head == NULL)	/* Step 1. Parameter validation */
 		return (NULL);
 
 	new_node = malloc(sizeof(dlistint_t)); /* Step 2. Malloc mem for new node */
 
-	if (new_node == NULL) /* If malloc fails, return NULL */
+		if (new_node == NULL) /* If malloc fails, return NULL */
 			return (NULL);
 
-	while (str[length] != '\0') /* Step 3. Calc the length of the str manually */
-		length++; /* Iterate count in string */
+	new_node->n = n; /* Pointing n to the head node */
+	new_node->prev = NULL;
+	current_head = *head;
+	new_node->next = current_head; /* Set next pointer of new_node to point */
 
-	new_node->len = length;
-	new_node->next = *head;
+	if (current_head == NULL) /* If list not empty */
+		new_node->next = (NULL);
 
-	*head = new_node;
-
-		return (new_node);
+	if (current_head != NULL)
+		current_head->prev = new_node;
+	
+	return (new_node);
 }
 
 
