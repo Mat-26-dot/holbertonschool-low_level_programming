@@ -28,11 +28,11 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		*head = new_node; /* Set head to point to the new node */
 			return (new_node); /* Return the address of the new node */
 	}
-	temp = *head;
-	/* Step 3. Traverse to the end of the list */
-	while (temp->next != NULL)
-	/* Move to the last node */
-	temp = temp->next;
+		temp = *head;
+		/* Step 3. Traverse to the end of the list */
+		while (temp->next != NULL)
+		/* Move to the last node */
+			temp = temp->next;
 
 	/* Step 4: Update pointers to add the new node at the end */
 	temp->next = new_node;	/* Last node's next points to the new node */
