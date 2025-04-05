@@ -18,11 +18,11 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 	if (new_node == NULL) /* if malloc fails return (NULL) */
 		return (NULL);
-
+	/* Initialize the new_node */
 	new_node->n = n;
-	new_node->next = (NULL); /* Set next ptr to NULL - last node */
+	new_node->next = (NULL); /* Since it will be last node */
 
-	if (*head == NULL)  /* Step 2. Handle empty list */
+	if (*head == NULL)  /* Step 2. Handle an empty list */
 	{
 		new_node->prev = (NULL); /* No previous node */
 		*head = new_node; /* Set head to point to the new node */
@@ -32,7 +32,6 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	/* Step 3. Traverse to the end of the list */
 	while (temp->next != NULL)
 	/* Move to the last node */
-	next->temp = new_node;
 	temp = temp->next;
 
 	/* Step 4: Update pointers to add the new node at the end */
