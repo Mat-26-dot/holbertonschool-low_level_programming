@@ -11,24 +11,20 @@
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	dlistint_t *current;
-	
-	unsigned int count = 0;
+	dlistint_t *current = head;
 
+	unsigned int count = 0;
 
 	if (head == NULL)	/* If head is NULL - Nothing to check */
 		return (NULL);
 
-	current = head; /* Initialize counter */
-	count = 0;
-
 	while (current != NULL)	/* Loop to traverse through list */
-
+	{
 	if (count == index)
 		return (current);
 
 			current = current->next;
 			count++;
-
+	}
 			return (NULL);
 }
