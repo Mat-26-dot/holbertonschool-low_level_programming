@@ -15,9 +15,6 @@ void free_dlistint(dlistint_t *head)
 	{
 		temp = head;
 		head = head->next;
-		free(head);
-		free(temp);
-		free(prev);
-		free(next);
+		free(temp);	/* Only free the current node */
 	}
 }
