@@ -11,20 +11,20 @@
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	dlistint_t *current = head;
+	dlistint_t *current = head;	/* Initialize current */
 
-	unsigned int count = 0;
+	unsigned int count = 0; 
 
 	if (head == NULL)	/* If head is NULL - Nothing to check */
 		return (NULL);
 
 	while (current != NULL)	/* Loop to traverse through list */
 	{
-	if (count == index)
-		return (current);
+	if (count == index)  /* Check the counter matches the index you're looking for */
+		return (current); /*if so, return current*/
 
-			current = current->next;
+			current = current->next; /* Move to the next node and increment count */
 			count++;
 	}
-			return (NULL);
+			return (NULL);	/* this means the index exceeds the bounds of the list */
 }
