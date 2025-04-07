@@ -9,7 +9,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int result = 0;
-	size_t i;
+	size_t i; /* Index for looping */
 
 	if (b == NULL)	/* Edge case: NULL pointer */
 		return (0);
