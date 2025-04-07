@@ -8,17 +8,14 @@
  */
 int print_last_digit(int n)
 {
-	int last_digit;
+	int last_digit = n % 10;
 
-	/* Handle negative numbers by converting to positive */
-	last_digit = n % 10;
+	/* Ensure the last digit is positive */
 	if (last_digit < 0)
-	{
 	last_digit = -last_digit;
-	}
 
-	/* Print the last digit */
-	_putchar('0' + last_digit);
+	/* Print using printf instead of putchar */
+	printf("%d", last_digit);
 
 	return (last_digit);
 }
