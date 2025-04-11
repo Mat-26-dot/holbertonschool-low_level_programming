@@ -1,42 +1,42 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * times_table - Prints the 9 times table starting with 0
+ * times_table - prints the 9 times table, starting with 0
  *
- * Return: void
+ * Description: Prints the 9x9 multiplication table in the specified format
  */
 void times_table(void)
 {
 	int row, col, product;
 
-	/* Outer loop for rows (0-9) */
 	for (row = 0; row <= 9; row++)
 	{
-	/* Inner loop for columns (0-9) */
 	for (col = 0; col <= 9; col++)
 	{
 		product = row * col;
 
-		/* Formatting for first column */
-		if (col == 0)
+	/* Print comma and spaces before all numbers except first in row */
+	if (col != 0)
+	{
+	_putchar(',');
+	_putchar(' ');
+
+	/* Add extra space for single-digit numbers */
+		if (product < 10)
+		_putchar(' ');
+		}
+
+		/* Print the number */
+		if (product >= 10)
 		{
-		printf("%d", product);
+		_putchar((product / 10) + '0');
+		_putchar((product % 10) + '0');
 		}
 		else
 		{
-		/* Format all other columns with comma and proper spacing */
-		printf(", ");
-                
-		/* Add leading space for single-digit numbers */
-		if (product < 10)
-		{
-			printf(" ");
-			}
-			printf("%d", product);
-			}
+		_putchar(product + '0');
 		}
-		/* New line at the end of each row */
-		printf("\n");
+	}
+	_putchar('\n');
 	}
 }
