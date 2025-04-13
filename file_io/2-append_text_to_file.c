@@ -2,26 +2,29 @@
 #include <fcntl.h>
 
 /**
- * append_text_to_file - Appends text to the end of a file.
- * @filename: Name of the file.
- * @text_content: NULL-terminated string to append.
+ * append_text_to_file - Appends text at the end of a file
+ * @filename: Name of the file
+ * @text_content: NULL-terminated string to append
  *
- * Return: 1 on success, -1 on failure.
+ * Return: 1 on success, -1 on failure
  * - Does not create file if it doesn't exist.
  * - Returns -1 if filename is NULL.
  * - If text_content is NULL, returns 1 if file exists, else -1.
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, write_result;
-	ssize_t len = 0;
+	int fd;
+	ssize_t write_status;
+	size_t len = 0;
 
 	if (filename == NULL)
 	return (-1);
 
-	/* Check if file exists and is writable */
-	if (access(filename, F_OK | W_OK) == -1)
-	return (-1);
+	/* Check if file exists by trying to open in read-only mode */
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+	return (-1); /* File doesn't exist or no permissions */
+	close(fd);
 
 	/* Early return if nothing to append */
 	if (text_content == NULL)
@@ -32,18 +35,18 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (fd == -1)
 	return (-1);
 
-	/* Calculate string length */
-	while (text_content[len] != '\0')
+	/* Calculate length of text_content */
+	while (text_content[len])
 	len++;
 
-	/* Write to file */
-	write_result = write(fd, text_content, len);
-	if (write_result == -1 || write_result != len)
+	/* Write content to file */
+	write_status = write(fd, text_content, len);
+	if (write_status == -1 || (size_t)write_status != len)
 	{
-		close(fd);
-		return (-1);
+	close(fd);
+	return (-1);
 	}
 
-	close(fd);
-	return (1);
+		close(fd);
+		return (1);
 }
