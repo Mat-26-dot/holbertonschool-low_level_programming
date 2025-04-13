@@ -2,18 +2,21 @@
 #include "main.h"
 
 /**
- * clear_bit - Sets the value of a bit to 0 at a given index.
- * @n: Pointer to the number whose bit will be cleared.
- * @index: The index (starting from 0) of the bit to clear.
- * Return: 1 if successful, -1 if an error occurred.
+ * flip_bits - number of bits you would need to flip
+ * @n: number whose bits are being compared
+ * @m: target number to which n must be converted
+ * Return: the count
  */
-int clear_bit(unsigned long int *n, unsigned int index)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	/* Check if index is out of bounds (exceeds bit width of unsigned long) */
-	if (index >= (sizeof(unsigned long int) * 8))
-	return (-1);
+	unsigned long int xor_result = n ^ m;
 
-	/* Clear the bit at 'index' using bitwise AND with a complemented mask */
-	*n &= ~(1UL << index);
-	return (1);
+	unsigned int count = 0;
+
+	while (xor_result > 0)
+	{	count += xor_result & 1;	/* Check if the LSB is 1 */
+		xor_result >>= 1;	/* Right-shift to check the next bit */
+	}
+
+	return (count);
 }
